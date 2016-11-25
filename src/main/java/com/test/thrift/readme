@@ -1,0 +1,21 @@
+1.安装thrift
+
+2.编写Thrift文件（定义接口，结构，异常等）,保存为test.thrift
+
+3.生成接口代码
+
+把thrift-0.7.0.exe    和test.thrift文件放在同一个目录
+进入DOS命令执行：thrift-0.7.0.exe   --gen java test.thrift
+生成文件  gen-java/net/johnc/thrift/Test.java
+
+D:\temp\snthrift>thrift-0.7.0.exe -gen java thrift\mds_client_service.thrift
+D:\temp\snthrift>thrift-0.7.0.exe -gen cpp thrift\mds_client_service.thrift
+
+4.编写服务端接口实现类
+public class TestImpl implements Test.Iface
+
+5.编写启动服务代码
+public class Server {
+
+6.编写客户端代码
+public class Client {
