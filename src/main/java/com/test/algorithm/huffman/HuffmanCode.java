@@ -1,6 +1,6 @@
-package com.test.algorithm.huffman;
+package com.test.algorithm.other.huffman;
 
 public class HuffmanCode {
-	public String node;// ±àÂë
-	public int n;// ±àÂëµÄ³¤¶È
+	public String node;// ï¿½ï¿½ï¿½ï¿½
+	public int n;// ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½
 }

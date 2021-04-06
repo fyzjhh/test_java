@@ -1,4 +1,4 @@
-package com.test.algorithm.math;
+package com.test.algorithm.other.math;
 
 import java.util.ArrayList;
 import java.util.Arrays;

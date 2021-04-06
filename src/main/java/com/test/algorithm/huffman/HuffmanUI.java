@@ -1,7 +1,7 @@
-package com.test.algorithm.huffman;
+package com.test.algorithm.other.huffman;
 
 /**
- * Íê³É£¡ ÐèÒª¼ÓÏ¸½Ú
+ * ï¿½ï¿½É£ï¿½ ï¿½ï¿½Òªï¿½ï¿½Ï¸ï¿½ï¿½
  * 
  * @author jq
  * 
@@ -11,43 +11,43 @@ public class HuffmanUI extends javax.swing.JFrame {
 
 	private java.awt.Graphics g;
 
-	// Ìí¼ÓMenuBarµÄ·½·¨
+	// ï¿½ï¿½ï¿½MenuBarï¿½Ä·ï¿½ï¿½ï¿½
 	public java.awt.MenuBar creatMenubar() {
 		java.awt.MenuBar mB = new java.awt.MenuBar();
-		// ¶¨ÒåÒ»¸ö²Ëµ¥
-		java.awt.Menu mn1 = new java.awt.Menu("Ñ¹Ëõ");
-		// ¶¨Òå²Ëµ¥mn1µÄÒ»¸ö ÏÂÀ­Ìõ
-		java.awt.MenuItem mn1_I2 = new java.awt.MenuItem("´ò¿ª");
+		// ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ëµï¿½
+		java.awt.Menu mn1 = new java.awt.Menu("Ñ¹ï¿½ï¿½");
+		// ï¿½ï¿½ï¿½ï¿½Ëµï¿½mn1ï¿½ï¿½Ò»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		java.awt.MenuItem mn1_I2 = new java.awt.MenuItem("ï¿½ï¿½");
 		mn1_I2.addActionListener(new EncodeHuffmanListener());
 
-		// ½«I2¼ÓÈëmn1
+		// ï¿½ï¿½I2ï¿½ï¿½ï¿½ï¿½mn1
 		mn1.add(mn1_I2);
-		// ½«²Ëµ¥mn1¼ÓÈëmBÖÐ
+		// ï¿½ï¿½ï¿½Ëµï¿½mn1ï¿½ï¿½ï¿½ï¿½mBï¿½ï¿½
 		mB.add(mn1);
-		java.awt.Menu mn2 = new java.awt.Menu("½âÑ¹Ëõ");
-		// ¶¨Òåmn2µÄÏÂÀ­Ìõ
-		java.awt.MenuItem mn2_I2 = new java.awt.MenuItem("´ò¿ª");
+		java.awt.Menu mn2 = new java.awt.Menu("ï¿½ï¿½Ñ¹ï¿½ï¿½");
+		// ï¿½ï¿½ï¿½ï¿½mn2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		java.awt.MenuItem mn2_I2 = new java.awt.MenuItem("ï¿½ï¿½");
 		mn2_I2.addActionListener(new DecodeHuffmanListner());
-		// ½«I2¼ÓÈëmn1
+		// ï¿½ï¿½I2ï¿½ï¿½ï¿½ï¿½mn1
 		mn2.add(mn2_I2);
-		// ½«²Ëµ¥mn1¼ÓÈëmBÖÐ
+		// ï¿½ï¿½ï¿½Ëµï¿½mn1ï¿½ï¿½ï¿½ï¿½mBï¿½ï¿½
 		mB.add(mn2);
 
 		return mB;
 
 	}
 
-	// ÏÔÊ¾´°ÌåµÄ·½·¨
+	// ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
 	public void showUI() {
-		// ÉèÖÃÒ»¸öÃû×Ö
-		this.setTitle("¹þ·òÂüÑ¹ËõÈí¼þ");
-		// ÉèÖÃÒ»¸ö´óÐ¡
+		// ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		this.setTitle("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½");
+		// ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ð¡
 		this.setSize(600, 600);
-		// ¼ÓÒ»¸ö²¼¾Ö¹ÜÀíÆ÷
+		// ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½
 		java.awt.FlowLayout fl = new java.awt.FlowLayout();
 		this.setLayout(fl);
-		// ¼ÓÒ»¸ö²Ëµ¥Bar
-		// ½«mB´«ÈëFRAMEÖÐ
+		// ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ëµï¿½Bar
+		// ï¿½ï¿½mBï¿½ï¿½ï¿½ï¿½FRAMEï¿½ï¿½
 		java.awt.MenuBar mB = this.creatMenubar();
 		this.setMenuBar(mB);
 		;
@@ -56,9 +56,9 @@ public class HuffmanUI extends javax.swing.JFrame {
 		this.getContentPane().setBackground(java.awt.Color.WHITE);
 		this.setVisible(true);
 		g = this.getGraphics();
-		g.setFont(new java.awt.Font("ºÚÌå", 12, 48));
+		g.setFont(new java.awt.Font("ï¿½ï¿½ï¿½ï¿½", 12, 48));
 		g.setColor(java.awt.Color.red);
-		g.drawString("»¶Ó­Ê¹ÓÃ£¡", this.getHeight() / 2 - 100, this.getWidth() / 2);
+		g.drawString("ï¿½ï¿½Ó­Ê¹ï¿½Ã£ï¿½", this.getHeight() / 2 - 100, this.getWidth() / 2);
 
 	}
 

@@ -1,9 +1,7 @@
-package com.test.algorithm.huffman;
-
-import com.test.algorithm.LZ77;
+package com.test.algorithm.other.huffman;
 
 /**
- * Íê³É£¡ ÐèÒª¼ÓÏ¸½Ú
+ * ï¿½ï¿½É£ï¿½ ï¿½ï¿½Òªï¿½ï¿½Ï¸ï¿½ï¿½
  * 
  * @author jq
  * 

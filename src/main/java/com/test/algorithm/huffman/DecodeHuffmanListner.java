@@ -1,11 +1,11 @@
-package com.test.algorithm.huffman;
+package com.test.algorithm.other.huffman;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
 /**
- * ButtonListerner2ÓÃÀ´Ð´½âÑ¹Ëõ
+ * ButtonListerner2ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½Ñ¹ï¿½ï¿½
  * @author jq
  *
  */
@@ -13,10 +13,10 @@ public class DecodeHuffmanListner implements ActionListener {
 
 	javax.swing.JFileChooser fileChooser =new javax.swing.JFileChooser();
 	File f;
-	//ÖØÐ´ÆäÖÐ·½·¨
+	//ï¿½ï¿½Ð´ï¿½ï¿½ï¿½Ð·ï¿½ï¿½ï¿½
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		//½«fileChooserµ¯³öÒ»¸ö¶Ô»°¿ò
+		//ï¿½ï¿½fileChooserï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ô»ï¿½ï¿½ï¿½
 		fileChooser.showOpenDialog(null);
 		f=fileChooser.getSelectedFile();
 		String s=f.getAbsolutePath();

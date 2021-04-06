@@ -1,4 +1,4 @@
-package com.test.algorithm.huffman;
+package com.test.algorithm.other.huffman;
 
 public class HuffmanNode {
 	public int data;

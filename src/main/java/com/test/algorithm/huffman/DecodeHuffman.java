@@ -1,16 +1,16 @@
-package com.test.algorithm.huffman;
+package com.test.algorithm.other.huffman;
 
 import java.io.IOException;
 
 public class DecodeHuffman extends Thread {
-	// ¶¨ÒåÒ»¸öÊý×é±äÁ¿À´´æ·Å¸÷¸ö×Ö½ÚÊý¾Ý¶ÔÓ¦µÄ±àÂë
+	// ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½ï¿½Ý¶ï¿½Ó¦ï¿½Ä±ï¿½ï¿½ï¿½
 	public HuffmanCode b[] = new HuffmanCode[256];
 	public String path;
-	// public ProgressBar proBar = new ProgressBar("½âÑ¹Ëõ");
-	public int fileLen;// inputÎÄ¼þ³¤¶È
+	// public ProgressBar proBar = new ProgressBar("ï¿½ï¿½Ñ¹ï¿½ï¿½");
+	public int fileLen;// inputï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	/**
-	 * ¶¨Òå¹¹ÔìÆ÷,´«Èëpath
+	 * ï¿½ï¿½ï¿½å¹¹ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½path
 	 * 
 	 * @param path
 	 */
@@ -26,7 +26,7 @@ public class DecodeHuffman extends Thread {
 	}
 
 	/*
-	 * ¶¨ÒåÒ»¸ö½«int ×ªÎª8Î»µÄString µÄ·½·¨
+	 * ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½int ×ªÎª8Î»ï¿½ï¿½String ï¿½Ä·ï¿½ï¿½ï¿½
 	 */
 	public String changeint(int n) {
 		int on = n;
@@ -55,7 +55,7 @@ public class DecodeHuffman extends Thread {
 	}
 
 	/*
-	 * ¶¨ÒåÒ»¸öÕÒµãºÏÊÊ·Ö¿ªµãn µÄ·½·¨
+	 * ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½Ê·Ö¿ï¿½ï¿½ï¿½n ï¿½Ä·ï¿½ï¿½ï¿½
 	 */
 	public int search(String s) {
 		int n;
@@ -82,11 +82,11 @@ public class DecodeHuffman extends Thread {
 	// }
 
 	/**
-	 * ¶¨ÒåÒ»¸öÒëÂëµÄ·½·¨
+	 * ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
 	 */
 	public void Decode() {
 		try {
-			// ¶¨ÒåÎÄ¼þÊäÈëÁ÷
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			java.io.FileInputStream fis = new java.io.FileInputStream(path);
 			if (fis.read() != 'h') {
 				throw new IOException(" Not a .hfrq file ");
@@ -107,7 +107,7 @@ public class DecodeHuffman extends Thread {
 
 			}
 			System.out.println(fname + "  -n:" + len);
-			// ÕÒµ½µã¡®.¡¯
+			// ï¿½Òµï¿½ï¿½ã¡®.ï¿½ï¿½
 			int dian;
 			for (dian = path.length() - 1; dian >= 0; dian--) {
 				if (path.charAt(dian) == '.') {
@@ -116,30 +116,30 @@ public class DecodeHuffman extends Thread {
 			}
 
 			String path2 = "";
-			// ¸´ÖÆ'.'ÒÔÇ°µÄ
+			// ï¿½ï¿½ï¿½ï¿½'.'ï¿½ï¿½Ç°ï¿½ï¿½
 			for (int i = 0; i <= dian - 1; i++) {
 				path2 = path2 + path.charAt(i);
 			}
-			// //¸´ÖÆfname
+			// //ï¿½ï¿½ï¿½ï¿½fname
 			// for (int i=0;i<fname.length();i++){
 			// path2=path2+fname.charAt(i);
 			//
 			System.out.println(path2);
-			// ¶ÁbÖÐµÄn
+			// ï¿½ï¿½bï¿½Ðµï¿½n
 			for (int i = 0; i < 256; i++) {
 				HuffmanCode hC = new HuffmanCode();
 				hC.n = fis.read();
 				hC.node = "";
 				b[i] = hC;
 			}
-			System.out.println("¸÷µãÓÐ³õÖµÁË£¡");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½Ð³ï¿½Öµï¿½Ë£ï¿½");
 			int i = 0;
 			int count = 0;
 			String coms = "";
-			// ¶ÁbµÄÊý¾Ý
+			// ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			while (i < 256) {
 				if (coms.length() >= b[i].n) {
-					// ÏÈ°ÑÕâb[i].nÎ»¸øb[i].node
+					// ï¿½È°ï¿½ï¿½ï¿½b[i].nÎ»ï¿½ï¿½b[i].node
 					for (int t = 0; t < b[i].n; t++) {
 						b[i].node = b[i].node + coms.charAt(t);
 
@@ -147,7 +147,7 @@ public class DecodeHuffman extends Thread {
 					System.out.println("b[" + i + "]:" + b[i].n + " "
 							+ b[i].node);
 
-					// °ÑcomsÇ°Õâ¼¸Î»È¥µô
+					// ï¿½ï¿½comsÇ°ï¿½â¼¸Î»È¥ï¿½ï¿½
 					String coms2 = "";
 					for (int t = b[i].n; t < coms.length(); t++) {
 						coms2 = coms2 + coms.charAt(t);
@@ -161,20 +161,20 @@ public class DecodeHuffman extends Thread {
 				}
 			}
 
-			// ÏÔÊ¾½ø¶È
+			// ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½
 			// proBar.start();
-			// µÃµ½ÎÄ¼þ´óÐ¡
+			// ï¿½Ãµï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ð¡
 			fileLen = fis.available();
 
-			// ¶ÁÕýÊ½Êý¾Ý
+			// ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½
 
-			// ¶¨ÒåÎÄ¼þÊä³öÁ÷
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			java.io.FileOutputStream fos = new java.io.FileOutputStream(path2);
 
-			// ¶¨ÒåÒ»¸örint À´´æ¶Á½øÀ´µÄÊý
+			// ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½rint ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			// int rint;
-			String rsrg;// ´æ×ª»»³ÉµÄSting
-			String compString = "";// ´æÒª±È½ÏµÄ×Ö·û´®
+			String rsrg;// ï¿½ï¿½×ªï¿½ï¿½ï¿½Éµï¿½Sting
+			String compString = "";// ï¿½ï¿½Òªï¿½È½Ïµï¿½ï¿½Ö·ï¿½ï¿½ï¿½
 			int intprogs = 0;
 			while (fis.available() > 1) {
 
@@ -187,9 +187,9 @@ public class DecodeHuffman extends Thread {
 				}
 				if (search(compString) >= 0) {
 					int cint = search(compString);
-					// System.out.println("Ð´ÈëÁË£º"+"int:"+cint+" "+changeint(cint)+" ="+compString);
+					// System.out.println("Ð´ï¿½ï¿½ï¿½Ë£ï¿½"+"int:"+cint+" "+changeint(cint)+" ="+compString);
 					fos.write(cint);
-					// É¾µôÇ°.n¸öÊý¾Ý
+					// É¾ï¿½ï¿½Ç°.nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					String compString2 = "";
 					for (int t = b[cint].n; t < compString.length(); t++) {
 						compString2 = compString2 + compString.charAt(t);
@@ -200,11 +200,11 @@ public class DecodeHuffman extends Thread {
 
 				} else {
 					compString = compString + changeint(fis.read());
-					// System.out.println("¶ÁÁË   remain:"+fis.available());
+					// System.out.println("ï¿½ï¿½ï¿½ï¿½   remain:"+fis.available());
 				}
 
 			}
-			// System.out.println("»¹²îÒ»¸ö×Ö½Ú¾Í¶ÁÍêÀ²");
+			// System.out.println("ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ö½Ú¾Í¶ï¿½ï¿½ï¿½ï¿½ï¿½");
 			int cint = fis.read();
 			String compString2 = "";
 			// System.out.println("re:"+cint+"S:"+compString);
@@ -212,12 +212,12 @@ public class DecodeHuffman extends Thread {
 				compString2 = compString2 + compString.charAt(t);
 			}
 			compString = compString2;
-			// System.out.println("»¹²î£º"+compString);
-			// É¾µôÇ°.n¸öÊý¾Ý
+			// System.out.println("ï¿½ï¿½ï¿½î£º"+compString);
+			// É¾ï¿½ï¿½Ç°.nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			while (compString.length() > 0) {
 				int ccint = search(compString);
 				fos.write(ccint);
-				// System.out.println("Ð´ÈëÁË£º"+compString);
+				// System.out.println("Ð´ï¿½ï¿½ï¿½Ë£ï¿½"+compString);
 				compString2 = "";
 				for (int t = b[ccint].n; t < compString.length(); t++) {
 					compString2 = compString2 + compString.charAt(t);
@@ -225,8 +225,8 @@ public class DecodeHuffman extends Thread {
 				compString = "";
 				compString = compString2;
 			}
-			System.out.println("½âÂëÍê±Ï£¡");
-			// proBar.jPM.setString("½âÑ¹ËõÍê±Ï£¡");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï£ï¿½");
+			// proBar.jPM.setString("ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½Ï£ï¿½");
 		} catch (Exception ef) {
 			ef.printStackTrace();
 		}

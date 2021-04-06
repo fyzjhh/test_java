@@ -1,4 +1,4 @@
-package com.test.algorithm.huffman;
+package com.test.algorithm.other.huffman;
 
 import javax.swing.JProgressBar;
 
@@ -9,19 +9,19 @@ public class ProgressBar extends Thread {
 	public String name;
 	public javax.swing.JFrame jF = new javax.swing.JFrame();
 
-	// ¶¨ÒåÒ»¸ö¹¹ÔìÆ÷£¬´«ÈëÃû×Ö
+	// ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public ProgressBar(String name) {
 		this.name = name;
 	}
 
-	// ¶¨ÒåÒ»¸öÏÔÊ¾´°ÌåµÄ·½·¨
+	// ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
 	public void showUI() {
 
-		// ÉèÖÃÒ»¸öÃû×Ö
-		jF.setTitle(name + "ÖĞ¡­¡­");
-		// ÉèÖÃÒ»¸ö´óĞ¡
+		// ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		jF.setTitle(name + "ï¿½Ğ¡ï¿½ï¿½ï¿½");
+		// ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ğ¡
 		jF.setSize(200, 200);
-		// ¼ÓÒ»¸ö²¼¾Ö¹ÜÀíÆ÷
+		// ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½
 		java.awt.FlowLayout fl = new java.awt.FlowLayout();
 		jF.setLayout(fl);
 		jF.setResizable(false);

@@ -1,44 +1,44 @@
-package com.test.algorithm.huffman;
+package com.test.algorithm.other.huffman;
 
 
-//Ð´Ò»¸öÁ´±íµÄÀà(Í·½áµãÎª¿Õ)
-//Í¬Ê±ÊµÏÖ³õÊ¼»¯HuffmanÊ÷µÄ¹¦ÄÜ
+//Ð´Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(Í·ï¿½ï¿½ï¿½Îªï¿½ï¿½)
+//Í¬Ê±Êµï¿½Ö³ï¿½Ê¼ï¿½ï¿½Huffmanï¿½ï¿½ï¿½Ä¹ï¿½ï¿½ï¿½
 public class EncodeHuffman extends Thread {
 
 	public HuffmanUserLineNode<HuffmanNode> current = null;
 	public HuffmanUserLineNode<HuffmanNode> head = null;
 	public int length = 0;
 	public String path;
-//	public ProgressBar proBar = new ProgressBar("Ñ¹Ëõ");
-	public int fileLen;// inputÎÄ¼þ³¤¶È
+//	public ProgressBar proBar = new ProgressBar("Ñ¹ï¿½ï¿½");
+	public int fileLen;// inputï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
 	public String fname;
 
-	// Ð´Ò»¸ö¹¹ÔìÆ÷À´´«Èëpath
+	// Ð´Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½path
 	public EncodeHuffman(String path, String fname) {
 		this.path = path;
 		this.fname = fname;
 	}
 
 	// public HuffmanTreeNode<HuffmanNode> root;
-	// ¶¨ÒåÒ»¸öÊý×éÀ´±íÊ¾¸÷¸öÊý¾Ý
-	public int a[] = new int[256];// Èça[1]±íÊ¾1³öÏÖµÄ´ÎÊý
+	// ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	public int a[] = new int[256];// ï¿½ï¿½a[1]ï¿½ï¿½Ê¾1ï¿½ï¿½ï¿½ÖµÄ´ï¿½ï¿½ï¿½
 	public HuffmanCode b[] = new HuffmanCode[256];
 
-	// ¶¨ÒåÒ»¸ö·½·¨£¬¶ÁÈ¡Êý¾Ý²¢¼ÇÂ¼¸÷¸ö×Ö½ÚÊý³öÏÖÆµ´Î
+	// ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½Ý²ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½
 	public void readFile() {
 		try {
-			// ´´½¨ÎÄ¼þÊäÈëÁ÷
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			java.io.FileInputStream fis = new java.io.FileInputStream(path);
 
-			// ½«ÎÄ¼þÁ÷°ü×°³ÉÒ»¸ö¿ÉÒÔÐ´»ù±¾Êý¾ÝÀàÐÍµÄÊä³öÁ÷
+			// ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½×°ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			// java.io.DataInputStream dis = new java.io.DataInputStream(fis);
 			while (fis.available() > 0) {
 				int i = fis.read();
-				// System.out.println("µ½ÁË->"+i);
+				// System.out.println("ï¿½ï¿½ï¿½ï¿½->"+i);
 				a[i]++;
 			}
 			uNode();
-			// ½¨Á¢¸÷¸öµÄHUFFMAN½áµã
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½HUFFMANï¿½ï¿½ï¿½
 			for (int i = 0; i < 256; i++) {
 				HuffmanNode huffmanNode = new HuffmanNode(i, a[i]);
 				shuxuIn(huffmanNode);
@@ -55,23 +55,23 @@ public class EncodeHuffman extends Thread {
 	// 2.
 
 	// public void testStart(){
-	// Ñ¹Ëõ.start();
-	// ÏÔÊ¾½çÃæ.start();
+	// Ñ¹ï¿½ï¿½.start();
+	// ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½.start();
 	// }
 
 	public void writeFile(String fileName) {
 		try {
-			// ´´½¨ÎÄ¼þÊäÈëÁ÷
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			java.io.FileInputStream fis = new java.io.FileInputStream(path);
-			// ´´½¨ÎÄ¼þÊä³öÁ÷
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			java.io.FileOutputStream fos = new java.io.FileOutputStream(path
 					+ ".hmrq");
-			// Ð´·ÅÎÄ¼þ±êÊ¶ÐÅÏ¢
+			// Ð´ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ê¶ï¿½ï¿½Ï¢
 			fos.write((int) 'h');
 			fos.write((int) 'f');
 			fos.write((int) 'r');
 			fos.write((int) 'q');
-			// ½«ÎÄ¼þÃûÊä³ö
+			// ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			fos.write(fileName.length());
 			for (int i = 0; i < fileName.length(); i++) {
 				fos.write((int) fileName.charAt(i));
@@ -82,17 +82,17 @@ public class EncodeHuffman extends Thread {
 			int count = 0;
 			int i = 0;
 			String writes = "";
-			String writes2 = "";// ÖÐ×ª×Ö·û´®
+			String writes2 = "";// ï¿½ï¿½×ªï¿½Ö·ï¿½ï¿½ï¿½
 			String writess;
 			while ((i < 256) || (count >= 8)) {
 
 				if (count >= 8) {
-					writess = "";// Çå¿ÕÒª×ª»¯µÄµÄÂë
+					writess = "";// ï¿½ï¿½ï¿½Òª×ªï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½
 					for (int t = 0; t < 8; t++) {
 						writess = writess + writes.charAt(t);
 					}
 
-					// ½«writesÇ°°ËÎ»É¾µô
+					// ï¿½ï¿½writesÇ°ï¿½ï¿½Î»É¾ï¿½ï¿½
 					if (writes.length() > 8) {
 						writes2 = "";
 						for (int t = 8; t < writes.length(); t++) {
@@ -107,7 +107,7 @@ public class EncodeHuffman extends Thread {
 					int intw = changeString(writess);
 
 					fos.write(intw);
-					// System.out.println("Ð´ÁË->b["+i+"]:"+intw+"("+writess+")");
+					// System.out.println("Ð´ï¿½ï¿½->b["+i+"]:"+intw+"("+writess+")");
 				} else {
 
 					count = count + b[i].n;
@@ -115,9 +115,9 @@ public class EncodeHuffman extends Thread {
 					i++;
 				}
 			}
-			// °ÑcountÊ£ÏÂµÄÐ´Èë
+			// ï¿½ï¿½countÊ£ï¿½Âµï¿½Ð´ï¿½ï¿½
 			if (count > 0) {
-				writess = "";// Çå¿ÕÒª×ª»¯µÄµÄÂë
+				writess = "";// ï¿½ï¿½ï¿½Òª×ªï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½
 				for (int t = 0; t < 8; t++) {
 					if (t < writes.length()) {
 						writess = writess + writes.charAt(t);
@@ -125,13 +125,13 @@ public class EncodeHuffman extends Thread {
 						writess = writess + '0';
 					}
 				}
-				fos.write(changeString(writess));// Ð´Èë
-				System.out.println("Ð´ÈëÁË->" + writess);
+				fos.write(changeString(writess));// Ð´ï¿½ï¿½
+				System.out.println("Ð´ï¿½ï¿½ï¿½ï¿½->" + writess);
 			}
-			// ÏÔÊ¾½ø¶È
+			// ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½
 //			proBar.start();
-			// ¿ªÊ¼½øÐÐÊý¾ÝµÄÐ´Èë
-			fileLen = fis.available();// Ð´ÎÄ¼þµÄ³¤¶È
+			// ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½Ð´ï¿½ï¿½
+			fileLen = fis.available();// Ð´ï¿½Ä¼ï¿½ï¿½Ä³ï¿½ï¿½ï¿½
 			count = 0;
 			writes = "";
 			writes2 = "";
@@ -150,12 +150,12 @@ public class EncodeHuffman extends Thread {
 				}
 
 				if (count >= 8) {
-					writess = "";// Çå¿ÕÒª×ª»¯µÄµÄÂë
+					writess = "";// ï¿½ï¿½ï¿½Òª×ªï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½
 					for (int t = 0; t < 8; t++) {
 						writess = writess + writes.charAt(t);
 					}
 
-					// ½«writesÇ°°ËÎ»É¾µô
+					// ï¿½ï¿½writesÇ°ï¿½ï¿½Î»É¾ï¿½ï¿½
 					if (writes.length() > 8) {
 						writes2 = "";
 						for (int t = 8; t < writes.length(); t++) {
@@ -168,7 +168,7 @@ public class EncodeHuffman extends Thread {
 					}
 					count = count - 8;
 					int intw = changeString(writess);
-					// System.out.println("Ð´ÁË->"+intw+"("+writess+")");
+					// System.out.println("Ð´ï¿½ï¿½->"+intw+"("+writess+")");
 					fos.write(intw);
 				} else {
 
@@ -179,10 +179,10 @@ public class EncodeHuffman extends Thread {
 			}
 			count = count + b[idata].n;
 			writes = writes + b[idata].node;
-			// °ÑcountÊ£ÏÂµÄÐ´Èë
+			// ï¿½ï¿½countÊ£ï¿½Âµï¿½Ð´ï¿½ï¿½
 			int endsint = 0;
 			if (count > 0) {
-				writess = "";// Çå¿ÕÒª×ª»¯µÄµÄÂë
+				writess = "";// ï¿½ï¿½ï¿½Òª×ªï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½
 				for (int t = 0; t < 8; t++) {
 					if (t < writes.length()) {
 						writess = writess + writes.charAt(t);
@@ -191,15 +191,15 @@ public class EncodeHuffman extends Thread {
 						endsint++;
 					}
 				}
-				fos.write(changeString(writess));// Ð´Èë
-				System.out.println("Ð´ÈëÁË->" + writess + "int:" + endsint);
+				fos.write(changeString(writess));// Ð´ï¿½ï¿½
+				System.out.println("Ð´ï¿½ï¿½ï¿½ï¿½->" + writess + "int:" + endsint);
 
 			}
-			// Ð´Ò»¸ön£¬±íÊ¾Ç°Ò»¸ö×Ö½ÚÖÐÓÐn¸öÎ»ÊÇÎÞÓÃµÄ
+			// Ð´Ò»ï¿½ï¿½nï¿½ï¿½ï¿½ï¿½Ê¾Ç°Ò»ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½ï¿½ï¿½nï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½
 			fos.write(endsint);
 
-//			proBar.jPM.setString("Ñ¹ËõÍê±Ï£¡");
-			System.out.println("Ñ¹ËõÍê±Ï£¡");
+//			proBar.jPM.setString("Ñ¹ï¿½ï¿½ï¿½ï¿½Ï£ï¿½");
+			System.out.println("Ñ¹ï¿½ï¿½ï¿½ï¿½Ï£ï¿½");
 		} catch (Exception ef) {
 			ef.printStackTrace();
 		}
@@ -226,7 +226,7 @@ public class EncodeHuffman extends Thread {
 	// }
 
 	/*
-	 * °´´óÐ¡Ë³Ðò²åÈë
+	 * ï¿½ï¿½ï¿½ï¿½Ð¡Ë³ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	public void shuxuIn(HuffmanNode huffmanNode) {
 		HuffmanUserLineNode<HuffmanNode> aNode = new HuffmanUserLineNode<HuffmanNode>();
@@ -254,17 +254,17 @@ public class EncodeHuffman extends Thread {
 	}
 
 	/*
-	 * ¶¨ÒåÒ»¸ö±éÀúµÄ·½·¨
+	 * ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
 	 */
 	public void traverSal() {
 		HuffmanUserLineNode<HuffmanNode> now = new HuffmanUserLineNode<HuffmanNode>();
 		if (head.next == null) {
-			System.out.println("Îª¿Õ!");
+			System.out.println("Îªï¿½ï¿½!");
 		} else {
 			now = head;
 			for (int i = 0; i < length; i++) {
 				now = now.next;
-				System.out.println("Êý¾ÝÎª£º" + now.data.data + "times="
+				System.out.println("ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½" + now.data.data + "times="
 						+ now.data.times);
 
 			}
@@ -272,7 +272,7 @@ public class EncodeHuffman extends Thread {
 		}
 	}
 
-	// ½«Ò»¸ö°ËÎ»µÄ×Ö·û´®×ª³ÉÒ»¸öÕûÊý
+	// ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½×ªï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public int changeString(String s) {
 		return ((int) s.charAt(0) - 48) * 128 + ((int) s.charAt(1) - 48) * 64
 				+ ((int) s.charAt(2) - 48) * 32 + ((int) s.charAt(3) - 48) * 16
@@ -329,7 +329,7 @@ public class EncodeHuffman extends Thread {
 	}
 
 	/*
-	 * Ð´Ò»¸örun·½·¨
+	 * Ð´Ò»ï¿½ï¿½runï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @see java.lang.Thread#run()
 	 */
